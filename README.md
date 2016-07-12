@@ -23,12 +23,12 @@ This plugin provides a web browser view that displays when calling `cordova.InAp
 
     var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
 
-This plugin also allows passing request headers. User need to pass comma separated headers, with their key and values separated by colon (:). Avoid spaces between separators (, and :)
+This plugin also allows passing request headers. User need to pass comma separated headers, with their key and values separated by colon (:). Avoid spaces between separators (, and :).
 
     var ref = cordova.InAppBrowser.open("http://apache.org", "_self", 'location=no','foo:bar,baz:qux');
     var ref = cordova.InAppBrowser.open("http://apache.org", "_self", 'location=no','Authorization:Token 1af538baa9045a84c0e889f672baf83ff24');
 
-This is a fork of [zanketmehta7's fork](https://github.com/sanketmehta7/cordova-plugin-inappbrowser) from [cordova inAppBrowser plugin](https://github.com/apache/cordova-plugin-inappbrowser) 
+This is a fork of [zanketmehta7's fork](https://github.com/sanketmehta7/cordova-plugin-inappbrowser) from [cordova inAppBrowser plugin](https://github.com/apache/cordova-plugin-inappbrowser). 
 This forks solves a couple of errors compiling in iOS.
 
 The `cordova.InAppBrowser.open()` function is defined to be a drop-in replacement
