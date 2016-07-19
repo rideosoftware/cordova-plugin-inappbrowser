@@ -7,7 +7,6 @@ Thumbs.db
 *.DS_Store
 
 *.bak
-*.cache
 *.log
 *.swp
 *.user
@@ -21,3 +20,4 @@ Thumbs.db
 
 
  
+/.idea/
