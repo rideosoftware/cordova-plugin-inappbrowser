@@ -11,13 +11,8 @@ Thumbs.db
 *.swp
 *.user
 
-
-
-
-
-
-
-
-
- 
-/.idea/
+# PhpStorm
+.idea/
+*.iml
+*.ipr
+*.iws
