@@ -158,8 +158,13 @@ public class InAppBrowser extends CordovaPlugin {
                         }
                         // load in webview
                         if (Boolean.TRUE.equals(shouldAllowNavigation)) {
-                            Log.d(LOG_TAG, "loading in webview");
-                            webView.loadUrl(url);
+                            Log.d(LOG_TAG, "loading in webview + extra headers ("+extraHeaders.size()+")");
+                            for (String name: extraHeaders.keySet()){
+                                String key = name.toString();
+                                String value = extraHeaders.get(name).toString();
+                                Log.e(LOG_TAG, "* "+key+": "+value);
+                            }
+                            webView.loadUrl(url, extraHeaders);
                         }
                         //Load the dialer
                         else if (url.startsWith(WebView.SCHEME_TEL))
