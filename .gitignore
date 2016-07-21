@@ -7,17 +7,12 @@ Thumbs.db
 *.DS_Store
 
 *.bak
-*.cache
 *.log
 *.swp
 *.user
 
-
-
-
-
-
-
-
-
- 
+# PhpStorm
+.idea/
+*.iml
+*.ipr
+*.iws
