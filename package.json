@@ -1,7 +1,8 @@
 {
   "name": "cordova-plugin-inappbrowser",
-  "version": "1.0.2-dev",
+  "version": "1.7.0",
   "description": "Cordova InAppBrowser Plugin",
+  "types": "./types/index.d.ts",
   "cordova": {
     "id": "cordova-plugin-inappbrowser",
     "platforms": [
@@ -9,6 +10,7 @@
       "amazon-fireos",
       "ubuntu",
       "ios",
+      "osx",
       "wp7",
       "wp8",
       "windows8",
@@ -31,18 +33,30 @@
     "cordova-amazon-fireos",
     "cordova-ubuntu",
     "cordova-ios",
+    "cordova-osx",
     "cordova-wp7",
     "cordova-wp8",
     "cordova-windows8",
     "cordova-windows",
     "cordova-firefoxos"
   ],
-  "engines": [
-    {
-      "name": "cordova",
-      "version": ">=3.1.0"
+  "scripts": {
+    "test": "npm run jshint",
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "0.2.3": {
+        "cordova": ">=3.1.0"
+      },
+      "2.0.0": {
+        "cordova": ">100"
+      }
     }
-  ],
+  },
   "author": "Apache Software Foundation",
-  "license": "Apache 2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  }
 }
