@@ -660,7 +660,12 @@ NSLog(@"--e openInCordovaWebView");
     self.backButton.enabled = YES;
     self.backButton.imageInsets = UIEdgeInsetsZero;
 
-    [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+    //TODO: get the hideclosebutton parameter from browserOptions
+    if(true){
+        [self.toolbar setItems:@[flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+    } else{
+        [self.toolbar setItems:@[self.closeButton, flexibleSpaceButton, self.backButton, fixedSpaceButton, self.forwardButton]];
+    }
 
     self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.toolbar];

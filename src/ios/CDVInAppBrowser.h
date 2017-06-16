@@ -64,6 +64,8 @@
 @property (nonatomic, assign) BOOL hidden;
 @property (nonatomic, assign) BOOL disallowoverscroll;
 
+@property (nonatomic, assign) BOOL hideclosebutton;
+
 + (CDVInAppBrowserOptions*)parseOptions:(NSString*)options;
 
 @end
