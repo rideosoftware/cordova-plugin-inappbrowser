@@ -121,6 +121,16 @@
 {
     CDVInAppBrowserOptions* browserOptions = [CDVInAppBrowserOptions parseOptions:options];
 
+    // RS: If property "hideclosebutton=yes" is passed, we replace the first button (Done) with a blank space
+    if (browserOptions.hideclosebutton) {
+
+        UIBarButtonItem* flexibleSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+
+        NSMutableArray* items = [[self.inAppBrowserViewController.toolbar items] mutableCopy];
+        [items replaceObjectAtIndex:0 withObject:flexibleSpaceButton];
+        [self.inAppBrowserViewController.toolbar setItems:items];
+    }
+
     if (browserOptions.clearcache) {
         NSHTTPCookie *cookie;
         NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
@@ -280,12 +290,11 @@
 - (void)openInCordovaWebView:(NSURL*)url withOptions:(NSString*)options withHeaders:(NSString*)headers
 {
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
-NSLog(@"--e openInCordovaWebView");
+
 #ifdef __CORDOVA_4_0_0
     // the webview engine itself will filter for this according to <allow-navigation> policy
     // in config.xml for cordova-ios-4.0
-    NSLog(@"--e 1");
-    
+
     NSMutableURLRequest* mrequest = [[NSMutableURLRequest alloc] initWithURL:url];
     
     //[request setValue:@"1" forHTTPHeaderField:@"horror"];
@@ -301,10 +310,8 @@ NSLog(@"--e openInCordovaWebView");
     [self.webViewEngine loadRequest:mrequest];
 #else
     if ([self.commandDelegate URLIsWhitelisted:url]) {
-        NSLog(@"--e 2");
         [self.webView loadRequest:request];
     } else { // this assumes the InAppBrowser can be excepted from the white-list
-        NSLog(@"--e 3");
         [self openInInAppBrowser:url withOptions:options withHeaders:@"" headers:headers];
     }
 #endif
